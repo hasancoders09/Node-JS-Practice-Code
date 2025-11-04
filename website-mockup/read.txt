@@ -1,0 +1,52 @@
+Project: Node.js Authentication Mockup  
+Author: Mehedi Hasan  
+Date: (Add today’s date)
+
+Description:
+---------------
+This project is a mockup (ready-to-use) Node.js setup for authentication and user management.  
+I added this project to GitHub as a ZIP file instead of a normal branch because the "node_modules" folder contains a large number of files, which makes it heavy for pushing directly to Git.
+
+When I create a new Node.js project, I can reuse this setup as a base template — just unzip it, install dependencies, and start coding.
+
+Folder & File Details:
+-----------------------
+
+📁 controllers/
+   └── authController.js
+       → Contains authentication logic (login, signup, logout, etc.)
+
+📁 models/
+   ├── db.js
+       → Handles database connection setup (example: MongoDB or MySQL)
+   └── userModel.js
+       → Defines user schema/model for authentication and data storage
+
+📁 routes/
+   └── authRoutes.js
+       → Defines all authentication-related routes (login, register, etc.)
+       → Uses functions from `authController.js`
+
+📁 views/
+   ├── index.ejs
+       → Main template (homepage or base page)
+   ├── pages/
+       → Contains page-level EJS files (like login, register, dashboard)
+   ├── partials/
+       → Contains reusable template parts (header, footer, navbar)
+   ├── script/
+       → JavaScript files for client-side logic
+   └── style/
+       → CSS or styling files
+
+Additional Notes:
+------------------
+- The `node_modules` folder is not included to keep the project lightweight.
+- To use the project:
+  1. Unzip the folder.
+  2. Run `npm install` to reinstall dependencies.
+  3. Start the server using `node server.js` or `nodemon server.js`.
+
+Purpose:
+--------
+This mockup helps me quickly set up a new Node.js project with authentication structure, saving setup time for future projects.
