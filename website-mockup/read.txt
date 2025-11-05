@@ -1,3 +1,4 @@
+Version: 0.1
 Project: Node.js Authentication Mockup  
 Author: Mehedi Hasan  
 Date: (Add today’s date)
@@ -49,4 +50,100 @@ Additional Notes:
 
 Purpose:
 --------
-This mockup helps me quickly set up a new Node.js project with authentication structure, saving setup time for future projects.
+This mockup helps me quickly set up a new Node.js project with an authentication structure, saving setup time for future projects.
+
+====================================================================================================================================
+====================================================================================================================================
+Version: 0.2
+Description:
+---------------
+CodeCraft is a Node.js + Express based content management system (CMS) with dynamic admin features.
+Version 0.2 introduces major updates to improve content control and flexibility.
+
+🆕 What’s New
+
+Project Management Module:
+Admins can now add, edit, and delete projects with thumbnails, galleries, and category selection.
+
+Dynamic Categories:
+Categories can be created directly from the dashboard and linked to projects.
+
+Post Enhancements:
+Added post creation and management with author linking.
+
+Admin Controls:
+Improved dashboard navigation, authentication, and CRUD handling.
+
+UI Enhancements:
+Clean layout updates for project forms, lists, and public detail pages.
+
+🛠️ Tech Stack
+
+Backend: Node.js, Express, MySQL
+
+Frontend: EJS templates, custom CSS, vanilla JS
+
+Database: MySQL (with auto table creation)
+
+Folder & File Details:
+-----------------------
+controllers/
+│-- adminAuthController.js
+│-- adminController.js
+│-- authController.js
+│-- categoryController.js ✅
+│-- postController.js
+│-- projectController.js ✅
+
+middleware/
+│-- adminAuth.js ✅
+│-- loadProjects.js
+
+models/
+│-- adminUser.js
+│-- categoryModel.js ✅
+│-- db.js ✅
+│-- postModel.js
+│-- projectModel.js ✅
+│-- userModel.js
+
+routes/
+│-- adminAuthRoutes.js
+│-- adminRoutes.js ✅
+│-- authRoutes.js
+
+uploads/
+│-- projects/
+
+views/
+│-- admin/
+│   │-- dashboard.ejs
+│   │-- login.ejs
+│   │-- posts.ejs
+│   │-- projects.ejs ✅
+│   │-- register.ejs
+│
+│-- pages/
+│   │-- about.ejs
+│   │-- contact.ejs
+│   │-- faq.ejs
+│   │-- login.ejs
+│   │-- posts.ejs
+│   │-- project-detail.ejs ✅
+│   │-- projects.ejs
+│   │-- register.ejs
+│
+│-- partials/
+│   │-- footer.ejs
+│   │-- header.ejs
+│
+│-- script/
+│   │-- main.js
+│
+│-- style/
+│   │-- default.css
+│
+│-- index.ejs
+
+====================================================================================================================================
+====================================================================================================================================
