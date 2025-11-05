@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <h1>🧱 Manage Projects</h1>
+
+  <!-- Add new category -->
+  <form action="/administrator/categories/add" method="POST" style="margin-top:10px;">
+    <input type="text" name="name" placeholder="Add new category" required/>
+    <button type="submit">Add Category</button>
+  </form>
+
+  <!-- Add Project Form -->
+  <form action="/administrator/projects" method="POST" enctype="multipart/form-data">
+    <label>Title:</label>
+    <input type="text" name="title" required />
+
+    <label>Description:</label>
+    <textarea name="description" rows="5" required></textarea>
+
+    <label>Thumbnail:</label>
+    <input type="file" name="thumbnail" accept="image/*" required />
+
+    <label>Gallery:</label>
+    <input type="file" name="gallery" accept="image/*" multiple />
+
+    <label>Category:</label>
+    <select name="category_id">
+      <option value="">Select Category</option>
+      <% categories.forEach(cat => { %>
+        <option value="<%= cat.id %>"><%= cat.name %></option>
+      <% }) %>
+    </select>
+
+    <label>Status:</label>
+    <select name="status">
+      <option value="active" selected>Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+
+    <button type="submit">Add Project</button>
+  </form>
+
+  <hr>
+
+  <h2>📢 Published Projects</h2>
+
+  <% if (!projects.length) { %>
+    <p>No projects published yet.</p>
+  <% } else { %>
+    <table border="1" cellpadding="10">
+      <thead>
+        <tr>
+          <th>Thumbnail</th>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% projects.forEach(p => { %>
+          <tr>
+            <td>
+              <% if (p.thumbnail) { %>
+                <img src="/uploads/projects/<%= p.thumbnail %>" width="80">
+              <% } %>
+            </td>
+            <td><%= p.title %></td>
+            <td><%= p.category_name || 'N/A' %></td>
+            <td>
+              <form action="/administrator/projects/edit/<%= p.id %>" method="POST" enctype="multipart/form-data" style="display:inline;">
+                <button type="submit">✏️ Edit</button>
+              </form>
+              <form action="/administrator/projects/delete/<%= p.id %>" method="POST" style="display:inline;">
+                <button type="submit" onclick="return confirm('Are you sure?')">🗑️ Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } %>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

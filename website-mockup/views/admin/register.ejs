@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+  <h1>🧑‍💼 Admin Registration</h1>
+  <form action="/admin/auth/register" method="POST">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <button type="submit">Register</button>
+  </form>
+  <p>Already have an account? <a href="/admin/auth/login">Login</a></p>
+</body>
+</html>

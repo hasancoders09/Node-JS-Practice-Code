@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <h1>📝 Manage Posts</h1>
+  <p>Welcome, <%= admin.name %>!</p>
+
+  <form action="/administrator/posts" method="POST" style="margin-bottom:20px;">
+    <label>Post Title:</label><br>
+    <input type="text" name="title" required><br><br>
+    
+    <label>Post Content:</label><br>
+    <textarea name="content" rows="5" cols="40" required></textarea><br><br>
+
+    <button type="submit">Create Post</button>
+  </form>
+
+  <h2>Existing Posts</h2>
+  <% if (posts.length === 0) { %>
+    <p>No posts yet.</p>
+  <% } else { %>
+    <ul>
+      <% posts.forEach(post => { %>
+        <li>
+          <strong><%= post.title %></strong><br>
+          <small>by <%= post.author || "Unknown" %> on <%= post.created_at.toLocaleString() %></small><br>
+          <p><%= post.content.substring(0, 100) %>...</p>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>

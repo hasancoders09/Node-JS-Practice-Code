@@ -9,6 +9,19 @@
 
   <h1>About Page</h1>
   <p>This is the about page content.</p>
+  
+<% if (projects && projects.length > 0) { %>
+  <% projects.forEach(project => { %>
+    <div class="project-card">
+      <img src="/uploads/projects/<%= project.thumbnail %>" alt="<%= project.title %>">
+      <h3><%= project.title %></h3>
+      <a href="/pages/projects/<%= project.slug %>">View Details</a>
+    </div>
+  <% }) %>
+<% } else { %>
+  <p>No projects found.</p>
+<% } %>
+
 
   <%- include('../partials/footer') %>
 </body>

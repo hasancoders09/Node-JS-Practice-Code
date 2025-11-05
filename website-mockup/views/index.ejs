@@ -6,16 +6,25 @@
   <script src="/script/script.js" defer></script>
 </head>
 <body>
+    <%- include('partials/header') %>
   <h1>Welcome to My Website 🚀</h1>
-  <nav>
-    <a href="/">Home</a> |
-    <a href="/pages/about">About Us</a> |
-    <a href="/pages/contact">Contact</a> |
-    <a href="/pages/faq">FAQ</a> |
-    <a href="/pages/login">Login</a> |
-    <a href="/pages/register">Register</a>
-  </nav>
+
+  
+<% if (projects && projects.length > 0) { %>
+  <% projects.forEach(project => { %>
+    <div class="project-card">
+      <img src="/uploads/projects/<%= project.thumbnail %>" alt="<%= project.title %>" width="200px"/>
+      <h3><%= project.title %></h3>
+      <a href="/pages/projects/<%= project.slug %>">View Details</a>
+    </div>
+  <% }) %>
+<% } else { %>
+  <p>No projects found.</p>
+<% } %>
 
 
+
+
+<%- include('partials/footer') %>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= project.title %></title>
+  <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+  <%- include("../partials/header") %>
+
+  <h1><%= project.title %></h1>
+  <% if(project.thumbnail){ %>
+    <img src="/uploads/projects/<%= project.thumbnail %>" alt="<%= project.title %>">
+  <% } %>
+
+  <div>
+    <%- project.description %>
+  </div>
+
+  <% if (project.gallery && project.gallery.length > 0) { %>
+    <h3>Gallery</h3>
+    <% project.gallery.forEach(img => { %>
+      <img src="/uploads/projects/<%= img %>" alt="<%= project.title %>" width="150">
+    <% }) %>
+  <% } %>
+
+  <%- include("../partials/footer") %>
+</body>
+</html>
